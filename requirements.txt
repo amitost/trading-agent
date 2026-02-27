@@ -1,0 +1,6 @@
+alpaca-py
+anthropic
+yfinance
+pandas
+schedule
+requests
