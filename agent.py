@@ -76,6 +76,24 @@ def execute_trade(ticker, action, qty):
 
 
 def run_agent():
+    from datetime import datetime
+    import pytz
+    
+    # בדוק אם השוק פתוח
+    ny_time = datetime.now(pytz.timezone('America/New_York'))
+    
+    # שבת או ראשון - סגור
+    if ny_time.weekday() >= 5:
+        print("Market closed - weekend. Skipping.")
+        return
+    
+    # בדוק שעות מסחר 9:30-16:00
+    market_open = ny_time.replace(hour=9, minute=30, second=0)
+    market_close = ny_time.replace(hour=16, minute=0, second=0)
+    if not (market_open <= ny_time <= market_close):
+        print("Market closed - outside trading hours. Skipping.")
+        return
+    
     print("\nAgent starting analysis...")
 
     market_data = {}
