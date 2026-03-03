@@ -162,9 +162,9 @@ If no trades needed, use empty list: {{"analysis": "brief analysis", "trades": [
 
 
 # Schedule the agent to run 3 times a day
-schedule.every().day.at("09:35").do(run_agent)
-schedule.every().day.at("13:00").do(run_agent)
-schedule.every().day.at("15:45").do(run_agent)
+schedule.every().day.at("14:45").do(run_agent)  # 16:45 ישראל
+schedule.every().day.at("17:00").do(run_agent)  # 19:00 ישראל
+schedule.every().day.at("20:45").do(run_agent)  # 22:45 ישראל - לפני סגירה
 
 print("Agent scheduled! Running at 09:35, 13:00, 15:45")
 print("Press Ctrl+C to stop")
